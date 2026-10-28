@@ -1,0 +1,59 @@
+{
+  "rules": [
+    {
+      "id": "RF_CARDIO_CRITICAL",
+      "requiredOptions": ["OPT_CRUSHING", "OPT_COLD_SWEAT_RADIATION"],
+      "thresholdScore": 6,
+      "severity": "CRITICAL",
+      "message": {
+        "en": "Critical cardiac risk detected. Please notify the nursing desk immediately or proceed directly to Emergency / Casualty.",
+        "hi": "हृदय संबंधी गंभीर खतरे का संकेत। कृपया तुरंत अस्पताल नर्सिंग स्टाफ को बताएं या आपातकालीन वार्ड (Emergency) जाएं।",
+        "mr": "हृदयाशी संबंधित गंभीर धोका आढळला. कृपया ताबडतोब नर्सिंग कर्मचाऱ्यांना कळवा किंवा आपत्कालीन विभागात जा."
+      }
+    },
+    {
+      "id": "RF_RESPIRATORY_CRITICAL",
+      "requiredOptions": ["OPT_BREATHLESS_REST"],
+      "thresholdScore": 5,
+      "severity": "CRITICAL",
+      "message": {
+        "en": "Severe respiratory distress detected. Immediate oxygen support / medical evaluation required.",
+        "hi": "सांस लेने में अत्यधिक कठिनाई। तुरंत ऑक्सीजन सहायता या चिकित्सक जांच आवश्यक है।",
+        "mr": "श्वास घेण्यास तीव्र अडचण. तात्काळ वैद्यकीय तपासणी आवश्यक आहे."
+      }
+    },
+    {
+      "id": "RF_GI_CRITICAL",
+      "requiredOptions": ["OPT_DIFFUSE_ALL", "OPT_VOMITING_BLOOD_FAINT"],
+      "thresholdScore": 5,
+      "severity": "CRITICAL",
+      "message": {
+        "en": "Possible acute abdominal emergency / internal hemorrhage. Immediate triage evaluation needed.",
+        "hi": "पेट की गंभीर समस्या या आंतरिक रक्तस्राव का संकेत। तुरंत इमरजेंसी जांच करवाएं।",
+        "mr": "पोटाची तीव्र समस्या. तात्काळ तपासणी आवश्यक आहे."
+      }
+    },
+    {
+      "id": "RF_NEURO_FEVER_CRITICAL",
+      "requiredOptions": ["OPT_ALTERED_DROWSY"],
+      "thresholdScore": 5,
+      "severity": "CRITICAL",
+      "message": {
+        "en": "Neurological / altered consciousness warning with fever. Immediate medical intervention needed.",
+        "hi": "बुखार के साथ अत्यधिक सुस्ती या बेहोशी का लक्षण। तुरंत डॉक्टर को दिखाएं।",
+        "mr": "तापासोबत सुस्ती किंवा बेशुद्धीचे लक्षण. तात्काळ डॉक्टरांना दाखवा."
+      }
+    },
+    {
+      "id": "RF_CARDIO_YELLOW",
+      "requiredOptions": ["OPT_CRUSHING"],
+      "thresholdScore": 3,
+      "severity": "YELLOW",
+      "message": {
+        "en": "Cardiac symptoms flagged for prioritized consultation.",
+        "hi": "छाती में भारीपन - प्राथमिकता के साथ डॉक्टर परामर्श हेतु चिह्नित।",
+        "mr": "छातीत जडपणा - प्राधान्याने तपासणीसाठी नोंदवले."
+      }
+    }
+  ]
+}

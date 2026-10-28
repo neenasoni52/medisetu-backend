@@ -1,0 +1,205 @@
+{
+  "modules": {
+    "CHIEF_COMPLAINT": [
+      {
+        "id": "CC_PRIMARY",
+        "type": "SINGLE_CHOICE",
+        "prompt": {
+          "en": "What is your main health concern today?",
+          "hi": "आज आपको क्या मुख्य समस्या या तकलीफ है?",
+          "mr": "आज तुम्हाला मुख्य काय त्रास होत आहे?"
+        },
+        "options": [
+          { "id": "OPT_CHEST_PAIN", "label": { "en": "Chest Pain / Discomfort", "hi": "सीने में दर्द या भारीपन", "mr": "छातीत दुखणे किंवा जड वाटणे" }, "targetModule": "CARDIO_RESPIRATORY" },
+          { "id": "OPT_ABDOMEN_PAIN", "label": { "en": "Stomach / Abdominal Pain", "hi": "पेट में दर्द या जलन", "mr": "पोटात दुखणे किंवा जळजळ" }, "targetModule": "GI_ABDOMINAL" },
+          { "id": "OPT_FEVER", "label": { "en": "Fever, Cough or Body Ache", "hi": "बुखार, खांसी या बदन दर्द", "mr": "ताप, खोकला किंवा अंगदुखी" }, "targetModule": "FEVER_GENERAL" },
+          { "id": "OPT_OTHER", "label": { "en": "Other / Speak to describe", "hi": "कुछ और (बोलकर बताएं)", "mr": "इतर काही (बोलून सांगा)" }, "targetModule": "CARDIO_RESPIRATORY" }
+        ]
+      }
+    ],
+    "CARDIO_RESPIRATORY": [
+      {
+        "id": "CARDIO_CHARACTER",
+        "type": "SINGLE_CHOICE",
+        "prompt": {
+          "en": "How does the chest pain or discomfort feel?",
+          "hi": "सीने में दर्द किस तरह का महसूस हो रहा है?",
+          "mr": "छातीतील दुखणे नक्की कशा स्वरूपाचे आहे?"
+        },
+        "options": [
+          { "id": "OPT_CRUSHING", "label": { "en": "Heavy pressure / squeezing tightness", "hi": "भारी दबाव या कसाव जैसा दर्द", "mr": "छातीत प्रचंड आवळल्यासारखे किंवा जड दाब" }, "riskWeight": 3 },
+          { "id": "OPT_BURNING_ACID", "label": { "en": "Burning sensation after meals", "hi": "खाने के बाद हल्की जलन / खट्टी डकार", "mr": "जेवणानंतर हलकी जळजळ" }, "riskWeight": 1 },
+          { "id": "OPT_PINCHING", "label": { "en": "Sharp pinch when taking deep breath", "hi": "गहरी सांस लेने पर चुभन", "mr": "खोल श्वास घेताना टोचणे" }, "riskWeight": 1 },
+          { "id": "OPT_OTHER", "label": { "en": "Other / Cannot describe easily", "hi": "कुछ और तकलीफ", "mr": "इतर काही" }, "riskWeight": 1 }
+        ]
+      },
+      {
+        "id": "CARDIO_ASSOCIATED",
+        "type": "SINGLE_CHOICE",
+        "prompt": {
+          "en": "Are you experiencing any of these associated symptoms?",
+          "hi": "क्या आपको इनमें से कोई और लक्षण भी महसूस हो रहा है?",
+          "mr": "तुम्हाला यासोबत खालीलपैकी काही त्रास होत आहे का?"
+        },
+        "options": [
+          { "id": "OPT_COLD_SWEAT_RADIATION", "label": { "en": "Cold sweat or pain spreading to left arm / jaw", "hi": "ठंडा पसीना या दर्द बाएं हाथ / जबड़े में जाना", "mr": "थंड घाम किंवा डाव्या हातात / जबड्यात जाणारे दुखणे" }, "riskWeight": 3 },
+          { "id": "OPT_BREATHLESS_REST", "label": { "en": "Severe difficulty breathing even while resting", "hi": "बैठे-बैठे भी सांस लेने में भारी तकलीफ", "mr": "विश्रांती करतानाही तीव्र धाप लागणे" }, "riskWeight": 3 },
+          { "id": "OPT_MILD_SWEAT", "label": { "en": "Mild fatigue or sweating on walking", "hi": "चलने पर हल्की थकावट या पसीना", "mr": "चालताना हलका थकवा" }, "riskWeight": 1 },
+          { "id": "OPT_NONE", "label": { "en": "None of these", "hi": "इनमें से कोई नहीं", "mr": "यापैकी काहीही नाही" }, "riskWeight": 0 }
+        ]
+      },
+      {
+        "id": "CARDIO_DURATION",
+        "type": "SINGLE_CHOICE",
+        "prompt": {
+          "en": "Since when have you been having this chest discomfort?",
+          "hi": "यह तकलीफ आपको कब से हो रही है?",
+          "mr": "हा त्रास तुम्हाला कधीपासून होत आहे?"
+        },
+        "options": [
+          { "id": "OPT_SUDDEN_LESS_1HR", "label": { "en": "Started suddenly within the last 1 hour", "hi": "अचानक पिछले 1 घंटे के अंदर शुरू हुआ", "mr": "गेल्या १ तासात अचानक सुरू झाले" }, "riskWeight": 2 },
+          { "id": "OPT_TODAY", "label": { "en": "Started earlier today (few hours ago)", "hi": "आज कुछ घंटे पहले से", "mr": "आज काही तासांपूर्वीपासून" }, "riskWeight": 1 },
+          { "id": "OPT_FEW_DAYS", "label": { "en": "Occurring on and off for a few days", "hi": "कुछ दिनों से कभी-कभी होता है", "mr": "गेल्या काही दिवसांपासून अधूनमधून" }, "riskWeight": 0 }
+        ]
+      }
+    ],
+    "GI_ABDOMINAL": [
+      {
+        "id": "GI_LOCATION",
+        "type": "SINGLE_CHOICE",
+        "prompt": {
+          "en": "Where exactly in your stomach is the pain?",
+          "hi": "पेट में दर्द मुख्य रूप से किस जगह पर है?",
+          "mr": "पोटात नक्की कोणत्या भागात दुखत आहे?"
+        },
+        "options": [
+          { "id": "OPT_UPPER_ABDOMEN", "label": { "en": "Upper stomach / near chest bone", "hi": "ऊपरी पेट में (छाती के ठीक नीचे)", "mr": "वरच्या पोटात (छातीच्या खाली)" }, "riskWeight": 1 },
+          { "id": "OPT_RIGHT_LOWER", "label": { "en": "Right lower stomach (near hip)", "hi": "पेट के निचले दाहिने हिस्से में", "mr": "पोटाच्या उजव्या खालच्या भागात" }, "riskWeight": 2 },
+          { "id": "OPT_DIFFUSE_ALL", "label": { "en": "All over the stomach with rigid tightness", "hi": "पूरे पेट में तेज दर्द और पेट कड़ा होना", "mr": "संपूर्ण पोटात तीव्र दुखणे आणि पोट ताठ होणे" }, "riskWeight": 3 },
+          { "id": "OPT_OTHER", "label": { "en": "Around navel or other area", "hi": "नाभि के आसपास या अन्य जगह", "mr": "बेंबीभोवती किंवा इतर भागात" }, "riskWeight": 1 }
+        ]
+      },
+      {
+        "id": "GI_ASSOCIATED",
+        "type": "SINGLE_CHOICE",
+        "prompt": {
+          "en": "Do you have any of these accompanying problems?",
+          "hi": "क्या साथ में इनमें से कोई परेशानी भी है?",
+          "mr": "सोबत यापैकी काही त्रास होत आहे का?"
+        },
+        "options": [
+          { "id": "OPT_VOMITING_BLOOD_FAINT", "label": { "en": "Repeated vomiting with blood or extreme dizziness", "hi": "खून की उल्टी या चक्कर आकर गिरना", "mr": "रक्ताची उलटी किंवा चक्कर येऊन पडणे" }, "riskWeight": 3 },
+          { "id": "OPT_LOOSE_MOTION", "label": { "en": "Loose motions or nausea", "hi": "दस्त (लूज मोशन) या उल्टी जैसा लगना", "mr": "जुलाब किंवा मळमळ" }, "riskWeight": 1 },
+          { "id": "OPT_GAS_BURNING", "label": { "en": "Gas, fullness or burning sensation", "hi": "गैस, पेट फूलना या जलन", "mr": "गॅस किंवा जळजळ" }, "riskWeight": 0 },
+          { "id": "OPT_NONE", "label": { "en": "None of these", "hi": "इनमें से कोई नहीं", "mr": "यापैकी काहीही नाही" }, "riskWeight": 0 }
+        ]
+      }
+    ],
+    "FEVER_GENERAL": [
+      {
+        "id": "FEVER_DURATION",
+        "type": "SINGLE_CHOICE",
+        "prompt": {
+          "en": "How long have you had fever or body ache?",
+          "hi": "आपको बुखार या बदन दर्द कितने दिनों से है?",
+          "mr": "तुम्हाला ताप किंवा अंगदुखी किती दिवसांपासून आहे?"
+        },
+        "options": [
+          { "id": "OPT_FEVER_1_2_DAYS", "label": { "en": "1 to 2 days", "hi": "1 से 2 दिनों से", "mr": "१ ते २ दिवसांपासून" }, "riskWeight": 1 },
+          { "id": "OPT_FEVER_3_7_DAYS", "label": { "en": "3 to 7 days", "hi": "3 से 7 दिनों से", "mr": "३ ते ७ दिवसांपासून" }, "riskWeight": 2 },
+          { "id": "OPT_FEVER_MORE_1_WEEK", "label": { "en": "More than 1 week", "hi": "1 सप्ताह से अधिक समय से", "mr": "१ आठवड्यापेक्षा जास्त काळापासून" }, "riskWeight": 2 }
+        ]
+      },
+      {
+        "id": "FEVER_SEVERITY_SIGNS",
+        "type": "SINGLE_CHOICE",
+        "prompt": {
+          "en": "Are you experiencing any of these high fever symptoms?",
+          "hi": "क्या बुखार के साथ इनमें से कोई गंभीर लक्षण है?",
+          "mr": "तापासोबत खालीलपैकी कोणते गंभीर लक्षण आहे का?"
+        },
+        "options": [
+          { "id": "OPT_ALTERED_DROWSY", "label": { "en": "Confusion, extreme drowsiness, or neck stiffness", "hi": "बेहोशी, अत्यधिक सुस्ती या गर्दन में अकड़न", "mr": "अति सुस्ती, गोंधळ किंवा मान ताठ होणे" }, "riskWeight": 3 },
+          { "id": "OPT_CHILLS_RIGORS", "label": { "en": "High shivering chills or body shaking", "hi": "कंपकपी के साथ तेज ठंड लगना", "mr": "थंडी वाजून तीव्र हुडहुडी भरणे" }, "riskWeight": 2 },
+          { "id": "OPT_RUNNY_NOSE_COUGH", "label": { "en": "Simple cough and runny nose", "hi": "सामान्य खांसी और जुकाम", "mr": "साधा खोकला आणि सर्दी" }, "riskWeight": 0 },
+          { "id": "OPT_NONE", "label": { "en": "None of these", "hi": "इनमें से कोई नहीं", "mr": "यापैकी काहीही नाही" }, "riskWeight": 0 }
+        ]
+      }
+    ],
+    "SYSTEMIC_REVIEW": [
+      {
+        "id": "SYS_CHRONIC_CONDITIONS",
+        "type": "SINGLE_CHOICE",
+        "prompt": {
+          "en": "Do you have any existing diagnosed long-term medical conditions?",
+          "hi": "क्या आपको इनमें से कोई पुरानी बीमारी या समस्या है?",
+          "mr": "तुम्हाला यापैकी कोणताही जुना आजार आहे का?"
+        },
+        "options": [
+          { "id": "OPT_DIABETES_BP", "label": { "en": "Diabetes or High Blood Pressure", "hi": "डायबिटीज (शुगर) या हाई बीपी", "mr": "मधुमेह (शुगर) किंवा उच्च रक्तदाब" } },
+          { "id": "OPT_HEART_ASTHMA", "label": { "en": "Heart disease or Asthma / Breathing issue", "hi": "हृदय रोग या दमा / अस्थमा", "mr": "हृदयरोग किंवा दमा" } },
+          { "id": "OPT_BOTH_MULTIPLE", "label": { "en": "Multiple of above conditions", "hi": "ऊपर दिए गए कई रोग", "mr": "वरीलपैकी एकापेक्षा जास्त आजार" } },
+          { "id": "OPT_NO_CHRONIC", "label": { "en": "No chronic conditions known", "hi": "कोई पुरानी बीमारी नहीं है", "mr": "कोणताही जुना आजार नाही" } }
+        ]
+      },
+      {
+        "id": "SYS_ALLERGIES",
+        "type": "SINGLE_CHOICE",
+        "prompt": {
+          "en": "Are you allergic to any medicines or injections?",
+          "hi": "क्या आपको किसी दवाई या इंजेक्शन से कोई एलर्जी होती है?",
+          "mr": "तुम्हाला कोणत्याही औषधाची किंवा इंजेक्शनची ॲलर्जी आहे का?"
+        },
+        "options": [
+          { "id": "OPT_ALLERGY_YES", "label": { "en": "Yes, allergic to some medicines (tell doctor)", "hi": "हाँ, कुछ दवाइयों से एलर्जी होती है", "mr": "होय, काही औषधांची ॲलर्जी आहे" } },
+          { "id": "OPT_ALLERGY_NO", "label": { "en": "No known medicine allergies", "hi": "नहीं, कोई एलर्जी नहीं है", "mr": "नाही, कोणतीही ॲलर्जी नाही" } }
+        ]
+      }
+    ],
+    "AYUSH_ASSESSMENT": [
+      {
+        "id": "AYUSH_AGNI",
+        "type": "SINGLE_CHOICE",
+        "prompt": {
+          "en": "How is your appetite and digestion (Agni)?",
+          "hi": "आपकी भूख और भोजन पचाने की शक्ति (अग्नि) कैसी रहती है?",
+          "mr": "तुमची भूक आणि पचनशक्ती (अग्नि) कशी आहे?"
+        },
+        "options": [
+          { "id": "OPT_SAMAGNI", "label": { "en": "Normal, digests timely without discomfort (Samagni)", "hi": "समय पर अच्छी भूख लगती है और पच जाता है (समाग्नि)", "mr": "वेळेवर योग्य भूक लागते आणि त्रास होत नाही (समाग्नि)" } },
+          { "id": "OPT_MANDAGNI", "label": { "en": "Low appetite, food sits heavy in stomach (Mandagni)", "hi": "भूख कम लगती है, पेट भारी रहता है (मंदाग्नि)", "mr": "कमी भूक, खाल्ल्यानंतर पोट जड होते (मंदाग्नि)" } },
+          { "id": "OPT_TIKSHNAGNI", "label": { "en": "Excessive frequent hunger with burning (Tikshnagni)", "hi": "ज्यादा भूख लगती है और सीने/पेट में जलन होती है (तीक्ष्णाग्नि)", "mr": "वारंवार तीव्र भूक लागते व जळजळ होते (तीक्ष्णाग्नि)" } },
+          { "id": "OPT_VISHAMAGNI", "label": { "en": "Irregular appetite, sometimes good, sometimes none (Vishamagni)", "hi": "अनियमित भूख - कभी बहुत ज्यादा, कभी बिल्कुल नहीं (विषमाग्नि)", "mr": "अनियमित भूक - कधी जास्त, कधी अजिबात नाही (विषमाग्नि)" } }
+        ]
+      },
+      {
+        "id": "AYUSH_KOSHTHA",
+        "type": "SINGLE_CHOICE",
+        "prompt": {
+          "en": "How are your daily bowel habits (Koshtha)?",
+          "hi": "पेट साफ होने की आदत (कोष्ठ) कैसी रहती है?",
+          "mr": "पोट साफ होण्याची सवय (कोष्ठ) कशी आहे?"
+        },
+        "options": [
+          { "id": "OPT_MADHYAMA_KOSHTHA", "label": { "en": "Regular and easy once or twice daily (Madhyama)", "hi": "रोज एक-दो बार आसानी से साफ होता है (मध्यम कोष्ठ)", "mr": "रोज नियमित व सहज साफ होते (मध्यम कोष्ठ)" } },
+          { "id": "OPT_KRURA_KOSHTHA", "label": { "en": "Hard stool, frequent constipation (Krura)", "hi": "कब्ज रहता है, मल कड़ा होता है (क्रूर कोष्ठ)", "mr": "बद्धकोष्ठता, मल कडक होतो (क्रूर कोष्ठ)" } },
+          { "id": "OPT_MRIDU_KOSHTHA", "label": { "en": "Loose or quick motion easily triggered (Mridu)", "hi": "पेट बहुत जल्दी खराब हो जाता है (मृदु कोष्ठ)", "mr": "सहज जुलाब होतात (मृदू कोष्ठ)" } }
+        ]
+      },
+      {
+        "id": "AYUSH_VYAYAMA",
+        "type": "SINGLE_CHOICE",
+        "prompt": {
+          "en": "How is your daily physical stamina and energy level (Vyayama Shakti)?",
+          "hi": "आपकी शारीरिक ताकत और काम करने की ऊर्जा (व्यायाम शक्ति) कैसी है?",
+          "mr": "तुमची शारीरिक ताकद आणि काम करण्याची ऊर्जा कशी आहे?"
+        },
+        "options": [
+          { "id": "OPT_PRAVARA_SHAKTI", "label": { "en": "High energy, able to do heavy work easily", "hi": "अच्छी ऊर्जा, मेहनत का काम आसानी से कर लेते हैं (प्रवर)", "mr": "चांगली ऊर्जा, श्रमाचे काम सहज करू शकता" } },
+          { "id": "OPT_MADHYAMA_SHAKTI", "label": { "en": "Moderate energy, normal daily activity", "hi": "मध्यम ऊर्जा, रोजमर्रा का काम कर पाते हैं (मध्यम)", "mr": "मध्यम ऊर्जा, दैनंदिन कामे होतात" } },
+          { "id": "OPT_AVARA_SHAKTI", "label": { "en": "Tires quickly, feels weak with little effort", "hi": "जल्दी थक जाते हैं, कमजोरी महसूस होती है (अवर)", "mr": "लवकर थकवा येतो, अशक्तपणा जाणवतो" } }
+        ]
+      }
+    ]
+  }
+}
